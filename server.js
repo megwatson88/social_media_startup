@@ -16,3 +16,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/populatedb', {
 });
 
 
+app.listen(PORT, () => {
+    console.log(`App running on ${PORT}`)
+})
