@@ -15,6 +15,9 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/populatedb', {
   useUnifiedTopology: true
 });
 
+//where do I start to build my API routes? 
+
+//can i get a template in how to build it out for the assignment? 
 
 app.listen(PORT, () => {
     console.log(`App running on ${PORT}`)
