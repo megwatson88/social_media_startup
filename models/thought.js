@@ -5,6 +5,6 @@ const thoughtSchema = new Schema ({
     body: String
 })
 
-const Thought = modle('Thought', thoughtSchema);
+const Thought = model('Thought', thoughtSchema);
 
 module.exports = Thought;
