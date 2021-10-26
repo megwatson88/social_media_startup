@@ -19,6 +19,15 @@ const thoughtController = {
         .then(dbUserData => {
             res.json({ message: 'Thought Created' })
         })
+    }, 
+    createThought(req, res){
+        Thought.create(req.body)
+        .then(dbThoughtData => {
+            res.json(dbThoughtData)
+        })
+        .catch(err => { 
+            res.status(500).json(err) 
+        })
     }
  };
 module.exports = thoughtController;
