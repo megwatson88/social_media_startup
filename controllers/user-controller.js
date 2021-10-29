@@ -28,7 +28,7 @@ const userController = {
                 console.log(err);
                 res.status(400).json(err);
             });
-    }, 
+    },
     //create a new user
     createUser: (req, res) => {
         User.create(req.body)
@@ -39,7 +39,7 @@ const userController = {
                 console.log(err);
                 res.status(400).json(err);
             })
-    }, 
+    },
     //update a users info
     updateUser: (req, res) => {
         User.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, runValidators: true })
@@ -54,14 +54,14 @@ const userController = {
                 console.log(err);
                 res.status(400).json(err);
             });
-    }, 
+    },
     //delete a user
     deleteUser: (req, res) => {
         User.findOneAndDelete({ _id: req.params.id })
             .then(dbUserData => {
                 if (!dbUserData) {
                     return res.status(404).json({ message: 'No user found' });
-                    
+
                 }
                 //delete thoughts by user
                 return Thought.deleteMany({ _id: { $in: dbUserData.thoughts } });
@@ -70,7 +70,7 @@ const userController = {
                 console.log(err);
                 res.status(400).json(err);
             });
-    } , 
-    
+    },
+
 }
-module.exports = userController; 
+module.exports = userController;
