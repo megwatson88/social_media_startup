@@ -4,7 +4,20 @@ const thoughtController = {
     getThoughts(req, res) {
         //this is the thoguth reference 
         Thought.find()
+        .sort({ createdAt: -1 })
             .then(dbThoughtData => {
+                res.json(dbThoughtData)
+            })
+            .catch(err => {
+                res.status(500).json(err)
+            })
+    },
+    getSingleThought(req, res) {
+        Thought.findOne( {_id: req.params.thoughtId })
+            .then(dbThoughtData => {
+                if (!dbThoughtData) {
+                    res.status(404).json({ message: 'No thought found with this id'})
+                }
                 res.json(dbThoughtData)
             })
             .catch(err => {
@@ -32,9 +45,8 @@ const thoughtController = {
             .then((dbUserData) => {
                 if (!dbUserData) {
                     res.status(404).json({ message: 'No user found with this id' })
-                } else {
-                    res.json(dbUserData)
-                }
+                } 
+                    res.json( { message: 'Thought Created' })
             })
             .catch(err => {
                 res.status(500).json(err)
