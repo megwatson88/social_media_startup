@@ -2,7 +2,7 @@ const { User, Thought } = require('../models');
 
 // GET /users
 const userController = {
-    getUser: (req, res) => {
+    getUsers: (req, res) => {
         User.find()
             .select('-__v')
             .then((dbUserData) => {
