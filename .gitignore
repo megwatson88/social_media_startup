@@ -58,5 +58,6 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows
 
-node_modules
+/Users/megancampbell/Desktop/projects/social_media_startup/node_modules
+
 .env
