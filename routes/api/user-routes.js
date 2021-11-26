@@ -8,10 +8,10 @@ const {
   
 } = require('../../controllers/user-controller');
 
-// /api/users
+// /api/user
 router.route('/').get(getUsers).post(createUser);
 
-// /api/users/:userId
+// /api/user/:userId
 router.route('/:userId').put(updateUser).delete(deleteUser);
 
 // /api/users/:userId/friends/:friendId
